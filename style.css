@@ -1,0 +1,681 @@
+
+        :root {
+            --color-dark-blue: #02612A;
+            --color-dark-teal: #FA6A41;
+            --color-medium-green: #57CF7A;
+            --color-light-green: #C2ECE3;
+            --color-cream: #EDF5E1;
+            --color-beige: #FFF1CD;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--color-cream);
+            color: var(--color-dark-blue);
+            overflow-x: hidden;
+        }
+
+        /* 1. ESTILO NAVBAR (ENCABEZADO) */
+        .navbar {
+            background-color: var(--color-dark-blue) !important;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            min-height: 100px; 
+            padding: 0; 
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-brand img {
+            height: 90px;
+            margin-right: 10px;
+        }
+
+        .navbar-nav .nav-item {
+            display: flex;
+            align-items: stretch;
+            height: 100px; 
+            margin: 0;
+        }
+        
+        .nav-link {
+            color: var(--color-cream) !important;
+            transition: background-color 0.3s ease, color 0.3s ease; 
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+            display: flex;
+            align-items: center; 
+            height: 100%; 
+            margin: 0;
+        }
+        
+        .nav-item .nav-link:hover, 
+        .nav-item .nav-link.active {
+            background-color: var(--color-medium-green); 
+            color: var(--color-dark-blue) !important; 
+            border-radius: 0; 
+        }
+        
+        .navbar-nav .nav-link {
+            color: var(--color-cream) !important;
+        }
+
+        .navbar-toggler-icon {
+            filter: invert(1);
+        }
+
+        /* 2. SECCIÓN HERO/PRODUCTOS DESTACADOS - DISEÑO CON IMAGEN ABSOLUTA (PERRO GRANDE) */
+        .hero-section {
+            background-color: var(--color-light-green);
+            padding-top: 80px;
+            padding-bottom: 80px;
+            color: var(--color-dark-blue);
+            min-height: 550px; /* Asegura una buena altura para el perro */
+            position: relative; 
+            overflow: hidden; 
+        }
+        .hero-text-content {
+            z-index: 10;
+        }
+        .hero-section h1 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            text-align: left; 
+        }
+        .hero-section p.lead {
+            text-align: left;
+        }
+        
+        /* ESTILO PARA EL CONTENEDOR ABSOLUTO DEL PERRO */
+        .hero-image-absolute { 
+            position: absolute;
+            right: 0;
+            bottom: 0; 
+            width: 50%; 
+            height: 100%; 
+            z-index: 1;
+        }
+        /* ESTILO PARA LA IMAGEN DEL PERRO (Se estira y cubre el espacio) */
+        .hero-image-actual { 
+            width: 100%; 
+            height: 100%;
+            object-fit: cover; /* Cubre el 100% del alto y ancho de la sección */
+            object-position: right bottom; 
+            filter: drop-shadow(5px 5px 15px rgba(0,0,0,0.3));
+        }
+        
+        .btn-highlight {
+            background-color: var(--color-dark-blue);
+            border-color: var(--color-dark-blue);
+            color: var(--color-cream);
+            font-size: 1.2em;
+            margin-top: 30px; 
+            z-index: 10;
+            position: relative; 
+        }
+        .btn-highlight:hover {
+            background-color: var(--color-dark-teal);
+            border-color: var(--color-dark-teal);
+        }
+        
+        
+      /* --- AJUSTES DE ESTILO DE LA SECCIÓN DE PRODUCTOS (CARRUSEL) --- */
+
+/* Mantenemos tu transición de 12s */
+#productosCarousel .carousel-inner .carousel-item {
+    transition: transform 12s ease-in-out !important; 
+}
+
+/* Compensamos el padding agregado en el contenedor del row */
+#productosCarousel .carousel-item .row {
+    margin-left: -5px !important;
+    margin-right: -5px !important;
+}
+
+/* Mantenemos el espacio original para los controles del carrusel */
+
+/* Estilo de los controles (Botones) */
+#productosCarousel .carousel-control-prev-icon,
+#productosCarousel .carousel-control-next-icon {
+    background-color: var(--color-dark-blue);
+    color: var(--color-cream);
+    /* Se mantienen los estilos de tus bloques anteriores */
+}
+
+/* --- ESTILOS DE LA NUEVA TARJETA DE PRODUCTO (Diseño Final Limpio) --- */
+
+.product-card-final {
+    background-color: #fff; /* Fondo BLANCO para la tarjeta */
+    border-radius: 10px; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card-final:hover {
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); 
+}
+
+/* Contenedor de la imagen (Fondo blanco limpio) */
+/* Busca este bloque: */
+/* Busca este bloque y modifica la altura: */
+.card-final-image-wrapper {
+    padding: 20px; 
+    background-color: #fff; 
+    /* AUMENTAMOS DRÁSTICAMENTE LA ALTURA. Probablemente 300px sea el mínimo para esas imágenes */
+    height: 300px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Y revisa la imagen misma, asegurando que no se recorte: */
+.card-final-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Esto asegura que toda la bolsa de comida sea visible */
+}
+
+/* Contenedor de información (Texto, Precio, Estrellas) */
+.card-final-info {
+    background-color: #fff;
+    padding: 15px;
+    padding-bottom: 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    
+    /* 🛑 CORRECCIÓN CLAVE: Altura mínima para estandarizar el espacio del texto 🛑 */
+    min-height: 200px; /* Prueba con 200px. Sube este valor si el texto más largo no cabe. */
+}
+
+/* Contenedor de Precio y Rating (para centrar y agrupar) */
+.card-final-price-box {
+    text-align: center;
+    width: 100%;
+    margin-top: auto; 
+    padding-bottom: 15px; /* Espacio entre el rating y el borde del botón */
+}
+
+/* Ajustes de tipografía */
+.card-final-title {
+    font-size: 1.2em;
+    color: var(--color-dark-blue);
+    font-weight: bold;
+    margin-bottom: 5px; 
+}
+
+.card-final-description {
+    font-size: 0.9em;
+    color: var(--color-dark-blue);
+    margin-bottom: 10px;
+}
+
+.card-final-price {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--color-dark-blue);
+    margin-bottom: 5px; /* Compacta el precio con las estrellas */
+}
+
+.card-final-rating {
+    color: var(--color-dark-blue); /* Usa el color principal para las estrellas */
+    font-size: 1.1em;
+    margin-bottom: 0; 
+}
+
+/* Botón de Compra (OSCURO, ANCHO COMPLETO Y PEGADO AL BORDE) */
+.btn-final-buy {
+    background-color: var(--color-dark-blue); 
+    color: var(--color-cream);
+    border: none;
+    padding: 15px 0; 
+    border-radius: 0; 
+    margin: 0; 
+    width: 100%; 
+    display: block; 
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-decoration: none;
+    
+    /* Asegura que el botón ocupe el espacio de margen inferior de la tarjeta */
+    margin-top: auto; 
+    
+    transition: background-color 0.2s ease;
+}
+
+.btn-final-buy:hover {
+    background-color: var(--color-medium-green); /* Color de acento de tu paleta */
+    color: var(--color-dark-blue); /* Texto oscuro en hover */
+}
+
+        /* 🏅 SECCIÓN VENTAJAS */
+        #ventajas {
+            background-color: var(--color-dark-blue); 
+            padding: 80px 0;
+            color: var(--color-cream);
+        }
+        #ventajas h2 {
+            color: var(--color-cream);
+            margin-bottom: 60px;
+            position: relative;
+        }
+        #ventajas h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--color-medium-green);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        .advantage-card-v2 {
+            background-color: var(--color-light-green);
+            color: var(--color-dark-blue);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        .advantage-card-v2:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        .advantage-card-v2 .icon-wrapper-v2 {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3em;
+            color: var(--color-cream);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        .advantage-card-v2:nth-child(1) .icon-wrapper-v2 {
+            background-color: var(--color-dark-teal);
+        }
+        .advantage-card-v2:nth-child(2) .icon-wrapper-v2 {
+            background-color: var(--color-medium-green);
+        }
+        .advantage-card-v2:nth-child(3) .icon-wrapper-v2 {
+            background-color: var(--color-dark-blue);
+        }
+        .advantage-card-v2 h5 {
+            color: var(--color-dark-blue);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .advantage-card-v2 p {
+            color: #333;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        /* 4. SECCIÓN NOSOTROS (VISIÓN, MISIÓN, VALORES) */
+        #nosotros {
+            background-color: var(--color-cream);
+            padding: 80px 0;
+            color: var(--color-dark-blue);
+        }
+        #nosotros h2 {
+            color: var(--color-dark-blue);
+            margin-bottom: 60px;
+            position: relative;
+        }
+        #nosotros h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--color-dark-teal);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        
+        .vision-container {
+            border-radius: 12px;
+        }
+
+        .vision-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 25px;
+            margin-bottom: 25px; 
+            border-radius: 12px;
+            background-color: var(--color-dark-blue); 
+            color: var(--color-cream);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .vision-container .vision-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .vision-item:hover {
+            transform: translateY(-8px); 
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+        }
+        
+        .vision-icon {
+            flex-shrink: 0;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.2em;
+            margin-right: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        .vision-item:nth-child(1) .vision-icon { 
+            background-color: var(--color-dark-teal); 
+            color: var(--color-cream); 
+        }
+        .vision-item:nth-child(2) .vision-icon { 
+            background-color: var(--color-dark-teal); 
+            color: var(--color-cream); 
+        }
+        .vision-item:nth-child(3) .vision-icon { 
+            background-color: var(--color-dark-teal); 
+            color: var(--color-cream); 
+        }
+        .vision-content h3 {
+            color: var(--color-medium-green);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .vision-content p {
+            color: var(--color-light-green);
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        /* 5. SECCIÓN EQUIPO (Diseño Estético de Tarjeta Vertical) */
+        #equipo {
+            background-color: var(--color-cream); 
+            padding: 80px 0;
+            color: var(--color-dark-blue);
+            text-align: center;
+        }
+        #equipo h2 {
+            color: var(--color-dark-blue);
+            margin-bottom: 40px;
+        }
+        .team-card-aesthetic {
+            background-color: #ffffff; 
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .team-card-aesthetic:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+        }
+        .team-card-aesthetic .image-placeholder {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            background-color: var(--color-light-green); /* Fondo para la imagen/icono */
+            color: var(--color-dark-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        .team-card-aesthetic .team-info h4 {
+            color: var(--color-dark-blue);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .team-card-aesthetic .team-info .role {
+            color: var(--color-dark-teal);
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .team-card-aesthetic .team-info .bio {
+            color: #666;
+            font-size: 0.85em;
+            line-height: 1.5;
+            margin-top: 10px;
+        }
+
+
+        /* 6. SECCIÓN TIPOS DE ALIMENTACIÓN (HOVER EFECTO DE VIDEO) */
+        #tipos {
+            background-color: var(--color-cream);
+            padding: 80px 0;
+        }
+        #tipos h2 {
+            color: var(--color-dark-blue);
+            margin-bottom: 50px;
+        }
+        .type-card {
+            position: relative;
+            background-color: var(--color-dark-blue);
+            color: var(--color-cream);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.4s ease-out;
+            height: 250px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+        }
+        .type-card .icon-and-title {
+            position: relative;
+            z-index: 2;
+            transition: transform 0.4s ease-out, color 0.4s ease-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .type-card i {
+            font-size: 4em;
+            margin-bottom: 10px;
+            color: var(--color-cream);
+            transition: color 0.4s ease-out;
+        }
+        .type-card h3 {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 0;
+            color: var(--color-cream);
+            transition: color 0.4s ease-out;
+        }
+        .type-card .description {
+            position: absolute;
+            bottom: 20px; 
+            width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+            color: var(--color-cream);
+            font-size: 0.9em;
+            opacity: 0;
+            transform: translateY(20px); 
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+            z-index: 2;
+        }
+        .type-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0; 
+            background-color: var(--color-medium-green);
+            transition: height 0.4s ease-out;
+            z-index: 1;
+        }
+        .type-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+            transform: translateY(-5px);
+        }
+        .type-card:hover .icon-and-title {
+            transform: translateY(-40px); 
+            color: var(--color-cream);
+        }
+        .type-card:hover i, .type-card:hover h3 {
+            color: var(--color-cream);
+        }
+        .type-card:hover .description {
+            opacity: 1; 
+            transform: translateY(0);
+        }
+        .type-card:hover::before {
+            height: 100%; 
+        }
+
+
+        /* ⬇️ FOOTER (PIE DE PÁGINA) */
+        footer {
+            background-color: var(--color-dark-blue); 
+            color: var(--color-cream);
+            padding: 40px 0;
+        }
+        footer h5 {
+            color: var(--color-medium-green);
+        }
+        footer a {
+            color: var(--color-light-green) !important;
+        }
+        footer a:hover {
+            color: var(--color-cream) !important;
+        }
+
+        
+
+#productosCarousel .carousel-inner .carousel-item {
+    transition: transform 12s ease-in-out !important; 
+}
+
+/* ... Estilos anteriores ... */
+
+/* 7. SECCIÓN ANUNCIOS (CSS PURO Y MÁXIMO TAMAÑO) */
+#ofertas-mes {
+    background-color: var(--color-beige);
+    padding: 80px 0; 
+    overflow: hidden;
+}
+
+#ofertas-mes h2 {
+    color: var(--color-dark-teal);
+    font-weight: 700;
+    margin-bottom: 60px; 
+    position: relative;
+    font-size: 3.2em; 
+}
+
+/* Contenedor que permite el ancho total (overflow) */
+.scrolling-carousel-container-v2 {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+/* La pista de carrusel: Duplicado de contenido, animación @keyframes */
+.scrolling-carousel-track-v2 {
+    display: flex;
+    gap: 40px; 
+    width: max-content; /* Es CRUCIAL para que el contenido se desborde */
+    animation: scroll-css 25s linear infinite; /* Animación de 25s, desplazamiento constante */
+}
+
+/* Pausa al pasar el ratón (efecto bonito de CSS puro) */
+.scrolling-carousel-container-v2:hover .scrolling-carousel-track-v2 {
+    animation-play-state: paused;
+}
+
+/* Estilo de la tarjeta de anuncio (Ancho y Alto Grandes) */
+.offer-card-v2 {
+    flex-shrink: 0; 
+    width: 1000px; /* Ancho muy grande para anuncios */
+    height: 600px; /* Alto grande */
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    display: flex; /* Para colocar la imagen y el texto */
+    align-items: center;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+.offer-card-v2:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.offer-img-v2 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    position: absolute;
+}
+
+.offer-info-v2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 30px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+    color: white;
+    text-align: left;
+    z-index: 2;
+}
+
+.offer-info-v2 h5 {
+    font-size: 2em; 
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.offer-info-v2 p {
+    font-size: 1.2em;
+    color: var(--color-light-green); 
+    margin: 0;
+}
+
+/* ⬇️ ANIMACIÓN CLAVE DE DESPLAZAMIENTO ⬇️ */
+@keyframes scroll-css {
+    0% {
+        transform: translateX(0);
+    }
+    /* El 50% es la mitad del contenido (el primer conjunto de tarjetas) */
+    100% {
+        transform: translateX(-50%); 
+    }
+}
+
